@@ -18,7 +18,8 @@ for _ in range(word_length):
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
-
+    if guess in display:
+        print(f"you have already guess {guess}")
     for position in range(word_length):
         letter = chosen_word[position]
         # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
@@ -26,6 +27,7 @@ while not end_of_game:
             display[position] = letter
 
     if guess not in chosen_word:
+        print(f"you have guess {guess}, that was not the word")
         lives -= 1
         if lives == 0:
             end_of_game = True
